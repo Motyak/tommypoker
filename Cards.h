@@ -38,7 +38,7 @@ Cards _createCards(std::initializer_list<Card> cards);
 #define UNUSED(Cards) (((Cards) >> 52) & 0xf)
 #define SET(Cards) ((Cards) & 0xf'ffff'ffff'ffff) // 52 last bits <=> 13 last hex-digits
 
-#define HAS_CARD(_Cards, Card) (SET(_Cards) & (uint64_t(1) << (Card)))
+#define HAS_CARD(_Cards, Card) ((_Cards) & (uint64_t(1) << (Card)))
 #define HAS_CARDS(_Cards, Cards) ((SET(_Cards) & SET(Cards)) == SET(Cards))
 
 #define INTER(Cards_A, Cards_B) _CREATE_CARDS_v2(SET(Cards_A) & SET(Cards_B))
