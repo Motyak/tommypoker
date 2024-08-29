@@ -29,6 +29,7 @@ using Cards = uint64_t;
 
 /* constructors/builders */
 #define _CREATE_CARDS(length, set) (uint64_t(length) << 56 | (set))
+#define _CREATE_CARDS_v2(set) _CREATE_CARDS(std::popcount(set), set)
 Cards _createCards(std::initializer_list<Card> cards);
 #define Cards(...) _createCards({__VA_ARGS__})
 
@@ -40,8 +41,9 @@ Cards _createCards(std::initializer_list<Card> cards);
 #define HAS_CARD(_Cards, Card) (SET(_Cards) & (uint64_t(1) << (Card)))
 #define HAS_CARDS(_Cards, Cards) ((SET(_Cards) & SET(Cards)) == SET(Cards))
 
-#define INTER(Cards_A, Cards_B) _CREATE_CARDS(std::popcount(SET(Cards_A) & SET(Cards_B)), SET(Cards_A) & SET(Cards_B))
-#define UNION(Cards_A, Cards_B) _CREATE_CARDS(std::popcount(SET(Cards_A) | SET(Cards_B)), SET(Cards_A) | SET(Cards_B))
+#define INTER(Cards_A, Cards_B) _CREATE_CARDS_v2(SET(Cards_A) & SET(Cards_B))
+#define UNION(Cards_A, Cards_B) _CREATE_CARDS_v2(SET(Cards_A) | SET(Cards_B))
+// #define DIFF(Cards_A, Cards_B) 
 
 // Cards inter(Cards A, Cards B);
 // Cards union_(Cards A, Cards B);
