@@ -1,5 +1,8 @@
 
 #include <stdint.h>
+#include <initializer_list>
+#include <iostream>
+#include <bitset>
 
 using Card = uint8_t; // any "Card" enum which values lie between 0 and 51
 
@@ -14,18 +17,26 @@ using Card = uint8_t; // any "Card" enum which values lie between 0 and 51
 *       |       |                               |
 *    -------   --   --------------------------------------------------------------
 *   |       | |  | |                                                              |
-*   XXXX_XXXX XXXX_XXXX XXXX_XXXX XXXX_XXXX XXXX_XXXX XXXX_XXXX XXXX_XXXX XXXX_XXXX
+*   XXXX'XXXX XXXX'XXXX XXXX'XXXX XXXX'XXXX XXXX'XXXX XXXX'XXXX XXXX'XXXX XXXX'XXXX
 *   0    4    8   12   16        24        32        40        48        56         (64)
 */
 using Cards = uint64_t;
 
-#define CREATE_CARDS() (0xffff'ffff'ffff'ffff)
+/* constants */
+#define EMPTY_SET (0x0000'0000'0000'0000)
+#define FULL_SET (0x340f'ffff'ffff'ffff)
 
+/* constructors/builders */
+#define CREATE_CARDS(length, set) ((uint64_t(length) << 56) | set)
+Cards createCards(std::initializer_list<Card> cards);
+
+/* selectors */
 #define LENGTH(Cards) (Cards >> 56)
 #define UNUSED(Cards) ((Cards >> 52) & 0xf)
 #define CARDS(Cards) (Cards & 0xf'ffff'ffff'ffff) // 52 last bits <=> 13 last hex-digits
 
-#define HAS_CARD(_Cards, Card) (CARDS(_Cards) & Card)
+#define HAS_CARD(_Cards, Card) (CARDS(_Cards) & (uint64_t(1) << Card))
+#define HAS_CARDS(_Cards, Cards) (CARDS(_Cards) & CARDS(Cards))
 
 // bool hasCard(Cards, Card);
 // bool hasCards(Cards, Cards);
@@ -37,3 +48,5 @@ using Cards = uint64_t;
 
 // Cards remaining(Cards);
 // Cards missing(Cards);
+
+#define PRINT(Cards) (std::cout << std::bitset<64>{Cards} << std::endl)
