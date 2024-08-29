@@ -1,7 +1,9 @@
 #ifndef STANDARD_52_CARD_DECK_ENUM_H
 #define STANDARD_52_CARD_DECK_ENUM_H
 
-enum Standard52CardDeckEnum {
+#include <stdint.h>
+
+enum Standard52CardDeckEnum : uint8_t {
     begin = 0,
 
     CLUBS_1 =  0,
