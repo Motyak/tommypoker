@@ -27,19 +27,18 @@ using Cards = uint64_t;
 #define FULL_SET (0x340f'ffff'ffff'ffff)
 
 /* constructors/builders */
-#define CREATE_CARDS(length, set) ((uint64_t(length) << 56) | (set))
 Cards createCards(std::initializer_list<Card> cards);
+#define Cards(...) createCards({__VA_ARGS__})
 
 /* selectors */
 #define LENGTH(Cards) ((Cards) >> 56)
 #define UNUSED(Cards) (((Cards) >> 52) & 0xf)
-#define CARDS(Cards) ((Cards) & 0xf'ffff'ffff'ffff) // 52 last bits <=> 13 last hex-digits
+#define SET(Cards) ((Cards) & 0xf'ffff'ffff'ffff) // 52 last bits <=> 13 last hex-digits
 
-#define HAS_CARD(_Cards, Card) (CARDS(_Cards) & (uint64_t(1) << (Card)))
-#define HAS_CARDS(_Cards, Cards) ((CARDS(_Cards) & CARDS(Cards)) == CARDS(Cards))
+#define HAS_CARD(_Cards, Card) (SET(_Cards) & (uint64_t(1) << (Card)))
+#define HAS_CARDS(_Cards, Cards) ((SET(_Cards) & SET(Cards)) == SET(Cards))
 
-// bool hasCard(Cards, Card);
-// bool hasCards(Cards, Cards);
+
 
 // Cards inter(Cards A, Cards B);
 // Cards union_(Cards A, Cards B);

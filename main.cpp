@@ -10,20 +10,20 @@ int main()
     }
 
     {
-        auto cards = createCards({HEARTS_1, SPADES_1, DIAMONDS_1});
+        auto cards = Cards(HEARTS_1, SPADES_1, DIAMONDS_1);
         auto res = HAS_CARD(cards, CLUBS_1)? "true" : "false";
         std::cout << res << std::endl;
     }
 
     {
-        auto cards = createCards({HEARTS_1, SPADES_1, DIAMONDS_1});
-        auto res = HAS_CARDS(cards, createCards({HEARTS_1, SPADES_1}))? "true" : "false";
+        auto cards = Cards(HEARTS_1, SPADES_1, DIAMONDS_1);
+        auto res = HAS_CARDS(cards, Cards(HEARTS_1, SPADES_1))? "true" : "false";
         std::cout << res << std::endl;
     }
 
     {
-        auto cards = createCards({HEARTS_1, SPADES_1, DIAMONDS_1});
-        auto res = HAS_CARDS(cards, createCards({HEARTS_1, CLUBS_1}))? "true" : "false";
+        auto cards = Cards(HEARTS_1, SPADES_1, DIAMONDS_1);
+        auto res = HAS_CARDS(cards, Cards(HEARTS_1, CLUBS_1))? "true" : "false";
         std::cout << res << std::endl;
     }
 }

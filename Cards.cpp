@@ -6,5 +6,5 @@ Cards createCards(std::initializer_list<Card> cards) {
     for (auto card: cards) {
         set |= uint64_t(1) << card;
     }
-    return CREATE_CARDS(length, set);
+    return (uint64_t(length) << 56) | set;
 }
