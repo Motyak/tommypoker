@@ -1,6 +1,7 @@
 #include <Standard52CardDeckEnum.h>
 #include <Cards.h>
 
+// g++ --std=c++20 main.cpp Cards.cpp -Wall -Wextra -I .
 int main()
 {
     std::cout << "HAS_CARD" << std::endl;
@@ -57,5 +58,12 @@ int main()
         auto cards_B = Cards(HEARTS_1, CLUBS_1, DIAMONDS_1);
         auto cards_C = SYMDIFF(cards_A, cards_B);
         PRINT(cards_C);
+    }
+
+    std::cout << "MISSING" << std::endl;
+    {
+        auto cards = Cards(HEARTS_1, SPADES_1, DIAMONDS_1, CLUBS_1);
+        auto res = MISSING(cards);
+        PRINT(res);
     }
 }
