@@ -43,12 +43,8 @@ Cards _createCards(std::initializer_list<Card> cards);
 
 #define INTER(Cards_A, Cards_B) _CREATE_CARDS_v2(SET(Cards_A) & SET(Cards_B))
 #define UNION(Cards_A, Cards_B) _CREATE_CARDS_v2(SET(Cards_A) | SET(Cards_B))
-// #define DIFF(Cards_A, Cards_B) 
-
-// Cards inter(Cards A, Cards B);
-// Cards union_(Cards A, Cards B);
-// Cards diff(Cards A, Cards B);
-// Cards symdiff(Cards A, Cards B);
+#define DIFF(Cards_A, Cards_B) _CREATE_CARDS_v2(SET(Cards_A) - (SET(Cards_A) & SET(Cards_B)))
+#define SYMDIFF(Cards_A, Cards_B) _CREATE_CARDS_v2(SET(Cards_A) ^ SET(Cards_B))
 
 // Cards remaining(Cards);
 // Cards missing(Cards);

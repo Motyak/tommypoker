@@ -42,4 +42,20 @@ int main()
         auto cards_C = UNION(cards_A, cards_B);
         PRINT(cards_C);
     }
+
+    std::cout << "DIFF" << std::endl;
+    {
+        auto cards_A = Cards(HEARTS_1, CLUBS_1);
+        auto cards_B = Cards(HEARTS_1, CLUBS_1, DIAMONDS_1);
+        auto cards_C = DIFF(cards_A, cards_B);
+        PRINT(cards_C);
+    }
+
+    std::cout << "SYMDIFF" << std::endl;
+    {
+        auto cards_A = Cards(HEARTS_1, CLUBS_1);
+        auto cards_B = Cards(HEARTS_1, CLUBS_1, DIAMONDS_1);
+        auto cards_C = SYMDIFF(cards_A, cards_B);
+        PRINT(cards_C);
+    }
 }
