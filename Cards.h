@@ -1,3 +1,5 @@
+#ifndef CARDS_H
+#define CARDS_H
 
 #include <stdint.h>
 #include <initializer_list>
@@ -53,3 +55,5 @@ using Cards = uint64_t;
 #define MISSING(Cards) _CREATE_CARDS(52 - LENGTH(Cards), SET(~Cards))
 
 #define PRINT(Cards) (std::cout << std::bitset<64>{Cards} << std::endl)
+
+#endif // CARDS_H

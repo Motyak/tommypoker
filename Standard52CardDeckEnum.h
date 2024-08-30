@@ -64,6 +64,6 @@ enum Standard52CardDeckEnum : uint8_t {
 
     end,
     len = end,
-}; // end of enum Standard52CardDeckEnum
+}; // enum Standard52CardDeckEnum
 
-#endif // end of STANDARD_52_CARD_DECK_ENUM_H
+#endif // STANDARD_52_CARD_DECK_ENUM_H
