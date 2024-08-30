@@ -27,8 +27,8 @@ using Card = uint8_t; // any "Card" enum which values lie between 0 and 51
 using Cards = uint64_t;
 
 /* constants */
-#define EMPTY_SET (0x0000'0000'0000'0000)
-#define FULL_SET (0x340f'ffff'ffff'ffff)
+#define EMPTY_SET 0x0000'0000'0000'0000
+#define FULL_SET 0x340f'ffff'ffff'ffff
 
 /* constructors/builders */
 #define _CREATE_CARDS(length, set) (uint64_t(length) << 56 | (set))
