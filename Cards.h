@@ -43,7 +43,9 @@ Cards _createCards(std::initializer_list<Card> cards);
 
 #define INTER(Cards_A, Cards_B) _CREATE_CARDS_v2(SET(Cards_A & Cards_B))
 #define UNION(Cards_A, Cards_B) _CREATE_CARDS_v2(SET(Cards_A | Cards_B))
+// A - B (non-commutative operation)
 #define DIFF(Cards_A, Cards_B) _CREATE_CARDS_v2(SET(Cards_A) - SET(Cards_A & Cards_B))
+// each set characteristics (commutative, as opposed to DIFF)
 #define SYMDIFF(Cards_A, Cards_B) _CREATE_CARDS_v2(SET(Cards_A ^ Cards_B))
 
 #define REMAINING(Cards) (Cards)
