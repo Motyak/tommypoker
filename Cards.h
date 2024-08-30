@@ -31,7 +31,8 @@ using Cards = uint64_t;
 /* constructors/builders */
 #define _CREATE_CARDS(length, set) (uint64_t(length) << 56 | (set))
 #define _CREATE_CARDS_v2(set) _CREATE_CARDS(std::popcount(set), set)
-#define Cards(...) ({auto list = {__VA_ARGS__}; _CREATE_CARDS(list.size(), std::accumulate(list.begin(), list.end(), uint64_t(0), [](auto set, auto card){return set | (uint64_t(1) << card);}));})
+#define _ADD_TO_SET [](auto set, auto card){return set | (uint64_t(1) << card);}
+#define Cards(...) ({auto list = {__VA_ARGS__}; _CREATE_CARDS(list.size(), std::accumulate(list.begin(), list.end(), uint64_t(0), _ADD_TO_SET));})
 
 /* selectors */
 #define LENGTH(Cards) ((Cards) >> 56)
