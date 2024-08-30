@@ -41,10 +41,10 @@ Cards _createCards(std::initializer_list<Card> cards);
 #define HAS_CARD(_Cards, Card) ((_Cards) & (uint64_t(1) << (Card)))
 #define HAS_CARDS(_Cards, Cards) ((SET(_Cards) & SET(Cards)) == SET(Cards))
 
-#define INTER(Cards_A, Cards_B) _CREATE_CARDS_v2(SET(Cards_A) & SET(Cards_B))
-#define UNION(Cards_A, Cards_B) _CREATE_CARDS_v2(SET(Cards_A) | SET(Cards_B))
-#define DIFF(Cards_A, Cards_B) _CREATE_CARDS_v2(SET(Cards_A) - (SET(Cards_A) & SET(Cards_B)))
-#define SYMDIFF(Cards_A, Cards_B) _CREATE_CARDS_v2(SET(Cards_A) ^ SET(Cards_B))
+#define INTER(Cards_A, Cards_B) _CREATE_CARDS_v2(SET(Cards_A & Cards_B))
+#define UNION(Cards_A, Cards_B) _CREATE_CARDS_v2(SET(Cards_A | Cards_B))
+#define DIFF(Cards_A, Cards_B) _CREATE_CARDS_v2(SET(Cards_A) - SET(Cards_A & Cards_B))
+#define SYMDIFF(Cards_A, Cards_B) _CREATE_CARDS_v2(SET(Cards_A ^ Cards_B))
 
 #define REMAINING(Cards) (Cards)
 #define MISSING(Cards) _CREATE_CARDS(52 - LENGTH(Cards), SET(~Cards))
