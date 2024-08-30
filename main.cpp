@@ -1,7 +1,7 @@
 #include <Standard52CardDeckEnum.h>
 #include <Cards.h>
 
-// g++ --std=c++20 main.cpp Cards.cpp -Wall -Wextra -I .
+// g++ --std=c++20 main.cpp -Wall -Wextra -I .
 int main()
 {
     std::cout << "HAS_CARD" << std::endl;

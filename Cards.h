@@ -4,6 +4,7 @@
 #include <iostream>
 #include <bitset>
 #include <bit>
+#include <numeric>
 
 using Card = uint8_t; // any "Card" enum which values lie between 0 and 51
 
@@ -30,8 +31,8 @@ using Cards = uint64_t;
 /* constructors/builders */
 #define _CREATE_CARDS(length, set) (uint64_t(length) << 56 | (set))
 #define _CREATE_CARDS_v2(set) _CREATE_CARDS(std::popcount(set), set)
-Cards _createCards(std::initializer_list<Card> cards);
-#define Cards(...) _createCards({__VA_ARGS__})
+#define _ACCUMULATE(init, fn, ...) ({auto list = {__VA_ARGS__}; std::accumulate(list.begin(), list.end(), init, fn);})
+#define Cards(...) (_CREATE_CARDS_v2(_ACCUMULATE(uint64_t(0), [](auto set, auto card){return set | (uint64_t(1) << card);}, __VA_ARGS__)))
 
 /* selectors */
 #define LENGTH(Cards) ((Cards) >> 56)
