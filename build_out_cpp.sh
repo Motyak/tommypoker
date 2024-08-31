@@ -22,7 +22,7 @@ eval_main_fn="$($comp_cmd \
 ## concatenate final out.cpp file ##
 out_cpp_comp_cmd="$(perl -pe 's/ -E//' <<< "$comp_cmd" \
     | perl -pe 's/ -I \S+//' \
-    | perl -pe 's/'"\Q$INPUT_SOURCE_FILE\E"'/out.cpp/' \
+    | SRC="$INPUT_SOURCE_FILE" perl -pe 's/$SRC/out.cpp/' $INPUT_SOURCE_FILE \
 )"
 cat <(cat <<< "$system_includes") \
     <(echo) \
