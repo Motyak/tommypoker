@@ -39,8 +39,8 @@ using Cards = uint64_t;
 #define UNUSED(Cards) (((Cards) >> 52) & 0x3f)
 #define SET(Cards) ((Cards) & 0xf'ffff'ffff'ffff) // 52 last bits <=> 13 last hex-digits
 
-#define HAS_CARD(_Cards, Card) ((_Cards) & (Card))
 #define HAS_CARDS(_Cards, Cards) ((SET(_Cards) & SET(Cards)) == SET(Cards))
+#define HAS_CARD HAS_CARDS
 
 #define INTER(Cards_A, Cards_B) Cards(SET(Cards_A & Cards_B))
 #define UNION(Cards_A, Cards_B) Cards(SET(Cards_A | Cards_B))
