@@ -1,21 +1,9 @@
-#ifndef STANDARD_52_CARD_DECK_ENUM_H
-#define STANDARD_52_CARD_DECK_ENUM_H
-
-#include <cstdint>
-
-#endif // STANDARD_52_CARD_DECK_ENUM_H
-
-#ifndef CARDS_H
-#define CARDS_H
-
+#include <bit>
+#include <bitset>
 #include <cstdint>
 #include <initializer_list>
 #include <iostream>
-#include <bitset>
-#include <bit>
 #include <numeric>
-
-#endif // CARDS_H
 
 // g++ --std=c++20 out.cpp -Wall -Wextra
 int main()
