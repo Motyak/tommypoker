@@ -1,7 +1,7 @@
 #ifndef CARDS_H
 #define CARDS_H
 
-#include <stdint.h>
+#include <cstdint>
 #include <initializer_list>
 #include <iostream>
 #include <bitset>

@@ -1,7 +1,7 @@
 #ifndef STANDARD_52_CARD_DECK_ENUM_H
 #define STANDARD_52_CARD_DECK_ENUM_H
 
-#include <stdint.h>
+#include <cstdint>
 
 #define CLUBS_1  (uint64_t(1) << ( 0))
 #define CLUBS_2  (uint64_t(1) << ( 1))
