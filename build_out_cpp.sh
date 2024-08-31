@@ -7,7 +7,7 @@ INPUT_HEADER_FILES="${@:2}"
 [ -z "$INPUT_HEADER_FILES" ] && INPUT_HEADER_FILES="$(ls **/*.h)"
 
 ## system includes ##
-system_includes="$(perl -ne 'print if /#include\s*<\w+>/g' $INPUT_HEADER_FILES \
+system_includes="$(perl -ne 'print if /#include\s*<\w+>/g' $INPUT_SOURCE_FILE $INPUT_HEADER_FILES \
     | sort \
     | uniq \
 )"
@@ -22,7 +22,7 @@ eval_main_fn="$($comp_cmd \
 ## concatenate final out.cpp file ##
 out_cpp_comp_cmd="$(perl -pe 's/ -E//' <<< "$comp_cmd" \
     | perl -pe 's/ -I \S+//' \
-    | SRC="$INPUT_SOURCE_FILE" perl -pe 's/$SRC/out.cpp/' $INPUT_SOURCE_FILE \
+    | perl -pe 's/'"\Q${INPUT_SOURCE_FILE//\//\\/}\E"'/out.cpp/' \
 )"
 cat <(cat <<< "$system_includes") \
     <(echo) \
