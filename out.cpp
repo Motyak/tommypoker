@@ -12,14 +12,14 @@ int main()
     {
         auto cards = ((uint64_t(1) << ( 0)) | ((uint64_t(1) << ( 0)) << 13) | ((uint64_t(1) << ( 0)) << 26) | ((uint64_t(1) << ( 0)) << 39));
         auto res = (~cards & ((uint64_t(1) << 52) - 1));
-        (std::cout << std::bitset<64>{res} << std::endl);
+        (std::cout << std::bitset<52>{res} << std::endl);
     }
 
     std::cout << "LENGTH" << std::endl;
     {
         auto cards = ((uint64_t(1) << ( 0)) | ((uint64_t(1) << ( 0)) << 13) | ((uint64_t(1) << ( 0)) << 26) | ((uint64_t(1) << ( 0)) << 39));
         auto res = (~cards & ((uint64_t(1) << 52) - 1));
-        (std::cout << std::bitset<64>{res} << std::endl);
+        (std::cout << std::bitset<52>{res} << std::endl);
     }
 
     std::cout << "INTER" << std::endl;
@@ -27,7 +27,7 @@ int main()
         auto cards_A = ((uint64_t(1) << ( 0 + 26)) | (uint64_t(1) << ( 0)) | (uint64_t(1) << ( 0 + 13)));
         auto cards_B = ((uint64_t(1) << ( 0 + 26)) | (uint64_t(1) << ( 0)));
         auto cards_C = (cards_A & cards_B);
-        (std::cout << std::bitset<64>{cards_C} << std::endl);
+        (std::cout << std::bitset<52>{cards_C} << std::endl);
     }
 
     std::cout << "UNION" << std::endl;
@@ -35,7 +35,7 @@ int main()
         auto cards_A = ((uint64_t(1) << ( 0 + 26)) | (uint64_t(1) << ( 0)) | (uint64_t(1) << ( 0 + 13)));
         auto cards_B = ((uint64_t(1) << ( 0 + 26)) | (uint64_t(1) << ( 0)));
         auto cards_C = (cards_A | cards_B);
-        (std::cout << std::bitset<64>{cards_C} << std::endl);
+        (std::cout << std::bitset<52>{cards_C} << std::endl);
     }
 
     std::cout << "DIFF" << std::endl;
@@ -43,7 +43,7 @@ int main()
         auto cards_A = ((uint64_t(1) << ( 0 + 26)) | (uint64_t(1) << ( 0)));
         auto cards_B = ((uint64_t(1) << ( 0 + 26)) | (uint64_t(1) << ( 0)) | (uint64_t(1) << ( 0 + 13)));
         auto cards_C = ((cards_A) - (cards_A & cards_B));
-        (std::cout << std::bitset<64>{cards_C} << std::endl);
+        (std::cout << std::bitset<52>{cards_C} << std::endl);
     }
 
     std::cout << "SYMDIFF" << std::endl;
@@ -51,7 +51,7 @@ int main()
         auto cards_A = ((uint64_t(1) << ( 0 + 26)) | (uint64_t(1) << ( 0)));
         auto cards_B = ((uint64_t(1) << ( 0 + 26)) | (uint64_t(1) << ( 0)) | (uint64_t(1) << ( 0 + 13)));
         auto cards_C = (cards_A ^ cards_B);
-        (std::cout << std::bitset<64>{cards_C} << std::endl);
+        (std::cout << std::bitset<52>{cards_C} << std::endl);
     }
 
     std::cout << "HAS_CARD" << std::endl;

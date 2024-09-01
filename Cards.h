@@ -60,6 +60,6 @@ using Cards = uint64_t; // a set of Card
 #define HAS_ANY_CARD INTER
 
 /* debug procedures */
-#define PRINT(Cards) (std::cout << std::bitset<64>{Cards} << std::endl)
+#define PRINT(Cards) (std::cout << std::bitset<52>{Cards} << std::endl)
 
 #endif // CARDS_H

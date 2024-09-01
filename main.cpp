@@ -7,14 +7,14 @@ int main()
     {
         auto cards = ALL_1;
         auto res = MISSING(cards);
-        PRINT(res); // 0000000000001111111111110111111111111011111111111101111111111110
+        PRINT(res); // 1111111111110111111111111011111111111101111111111110
     }
 
     std::cout << "LENGTH" << std::endl;
     {
         auto cards = ALL_1;
         auto res = MISSING(cards);
-        PRINT(res); // 0000000000001111111111110111111111111011111111111101111111111110
+        PRINT(res); // 1111111111110111111111111011111111111101111111111110
     }
 
     std::cout << "INTER" << std::endl;
@@ -22,7 +22,7 @@ int main()
         auto cards_A = Cards(HEARTS_1 | CLUBS_1 | DIAMONDS_1);
         auto cards_B = Cards(HEARTS_1 | CLUBS_1);
         auto cards_C = INTER(cards_A, cards_B);
-        PRINT(cards_C); // 0000000000000000000000000000000000000100000000000000000000000001
+        PRINT(cards_C); // 0000000000000000000000000100000000000000000000000001
     }
 
     std::cout << "UNION" << std::endl;
@@ -30,7 +30,7 @@ int main()
         auto cards_A = Cards(HEARTS_1 | CLUBS_1 | DIAMONDS_1);
         auto cards_B = Cards(HEARTS_1 | CLUBS_1);
         auto cards_C = UNION(cards_A, cards_B);
-        PRINT(cards_C); // 0000000000000000000000000000000000000100000000000010000000000001
+        PRINT(cards_C); // 0000000000000000000000000100000000000010000000000001
     }
 
     std::cout << "DIFF" << std::endl;
@@ -38,7 +38,7 @@ int main()
         auto cards_A = Cards(HEARTS_1 | CLUBS_1);
         auto cards_B = Cards(HEARTS_1 | CLUBS_1 | DIAMONDS_1);
         auto cards_C = DIFF(cards_A, cards_B);
-        PRINT(cards_C); // 0000000000000000000000000000000000000000000000000000000000000000
+        PRINT(cards_C); // 0000000000000000000000000000000000000000000000000000
     }
 
     std::cout << "SYMDIFF" << std::endl;
@@ -46,7 +46,7 @@ int main()
         auto cards_A = Cards(HEARTS_1 | CLUBS_1);
         auto cards_B = Cards(HEARTS_1 | CLUBS_1 | DIAMONDS_1);
         auto cards_C = SYMDIFF(cards_A, cards_B);
-        PRINT(cards_C); // 0000000000000000000000000000000000000000000000000010000000000000
+        PRINT(cards_C); // 0000000000000000000000000000000000000010000000000000
     }
 
     std::cout << "HAS_CARD" << std::endl;
