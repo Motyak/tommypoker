@@ -63,7 +63,7 @@
 
 /// SUB-SET CONSTANTS /////////////////////////////////////////
 
-#define EMPTY_SET 0
+#define EMPTY_SET uint64_t(0)
 #define FULL_SET ((uint64_t(1) << 52) - 1)
 
 #define ALL_CLUBS ((uint64_t(1) << 13) - 1)
