@@ -13,8 +13,8 @@ int main()
     std::cout << "LENGTH" << std::endl;
     {
         auto cards = ALL_1;
-        auto res = MISSING(cards);
-        PRINT(res); // 1111111111110111111111111011111111111101111111111110
+        auto res = LENGTH(cards);
+        std::cout << res << std::endl; // 4
     }
 
     std::cout << "INTER" << std::endl;
