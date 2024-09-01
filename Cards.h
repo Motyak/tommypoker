@@ -17,15 +17,15 @@ using Cards = uint64_t; // a set of Card
 /* operations */
 
 #define REMAINING(Cards) (Cards)
-#define MISSING(Cards) (~Cards & FULL_SET)
+#define MISSING(Cards) (~(Cards) & FULL_SET)
 #define LENGTH(Cards) std::popcount(Cards)
 
-#define INTER(Cards_A, Cards_B) (Cards_A & Cards_B)
-#define UNION(Cards_A, Cards_B) (Cards_A | Cards_B)
+#define INTER(Cards_A, Cards_B) ((Cards_A) & (Cards_B))
+#define UNION(Cards_A, Cards_B) ((Cards_A) | (Cards_B))
 // A - B (non-commutative operation)
-#define DIFF(Cards_A, Cards_B) ((Cards_A) - (Cards_A & Cards_B))
+#define DIFF(Cards_A, Cards_B) ((Cards_A) - ((Cards_A) & (Cards_B)))
 // each set characteristics (commutative, as opposed to DIFF)
-#define SYMDIFF(Cards_A, Cards_B) (Cards_A ^ Cards_B)
+#define SYMDIFF(Cards_A, Cards_B) ((Cards_A) ^ (Cards_B))
 
 #define HAS_CARDS(_Cards, Cards) (((_Cards) & (Cards)) == (Cards))
 #define HAS_CARD HAS_CARDS
