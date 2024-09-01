@@ -77,4 +77,16 @@ int main()
         auto res = (((cards) & (((uint64_t(1) << ( 0 + 26)) | (uint64_t(1) << ( 0))))) == (((uint64_t(1) << ( 0 + 26)) | (uint64_t(1) << ( 0)))))? "true" : "false";
         std::cout << res << std::endl;
     }
+
+    std::cout << "HAS_ANY_CARD" << std::endl;
+    {
+        auto cards = ((uint64_t(1) << ( 0 + 26)) | (uint64_t(1) << ( 0 + 39)) | (uint64_t(1) << ( 0 + 13)));
+        auto res = (cards & (((uint64_t(1) << 13) - 1) << 26))? "true" : "false";
+        std::cout << res << std::endl;
+    }
+    {
+        auto cards = ((uint64_t(1) << ( 0 + 26)) | (uint64_t(1) << ( 0 + 39)) | (uint64_t(1) << ( 0 + 13)));
+        auto res = (cards & ((uint64_t(1) << 13) - 1))? "true" : "false";
+        std::cout << res << std::endl;
+    }
 }

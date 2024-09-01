@@ -72,4 +72,16 @@ int main()
         auto res = HAS_CARDS(cards, Cards(HEARTS_1 | CLUBS_1))? "true" : "false";
         std::cout << res << std::endl; // false
     }
+
+    std::cout << "HAS_ANY_CARD" << std::endl;
+    {
+        auto cards = Cards(HEARTS_1 | SPADES_1 | DIAMONDS_1);
+        auto res = HAS_ANY_CARD(cards, ALL_HEARTS)? "true" : "false";
+        std::cout << res << std::endl; // true
+    }
+    {
+        auto cards = Cards(HEARTS_1 | SPADES_1 | DIAMONDS_1);
+        auto res = HAS_ANY_CARD(cards, ALL_CLUBS)? "true" : "false";
+        std::cout << res << std::endl; // false
+    }
 }
