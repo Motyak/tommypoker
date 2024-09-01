@@ -4,6 +4,8 @@
 #include <bitset>
 #include <ctime>
 
+#define until(x) while(!(x))
+
 // remove and return random '1' bit from the set
 static uint64_t randSetBit(std::bitset<52>* bitset) {
     static std::random_device rng;
@@ -14,10 +16,11 @@ static uint64_t randSetBit(std::bitset<52>* bitset) {
     }
 
     auto rand = std::uniform_int_distribution<int>(1, count);
-    uint8_t i = 0;
-    for(auto r = rand(rng); r != 0; ++i) {
-        r -= (*bitset)[i];
-    }
+    int i = 0;
+    auto r = rand(rng);
+    do {
+        r -= (*bitset)[i++];
+    } until (r == 0);
 
     (*bitset)[i - 1] = 0;
     return uint64_t(1) << (i - 1);
