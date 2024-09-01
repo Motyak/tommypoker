@@ -3,6 +3,8 @@
 
 #include <cstdint>
 
+/// ENUMERATES ////////////////////////////////////////////////
+
 #define CLUBS_1  (uint64_t(1) << ( 0))
 #define CLUBS_2  (uint64_t(1) << ( 1))
 #define CLUBS_3  (uint64_t(1) << ( 2))
@@ -58,5 +60,30 @@
 #define SPADES_J  (uint64_t(1) << (10 + 39))
 #define SPADES_Q  (uint64_t(1) << (11 + 39))
 #define SPADES_K  (uint64_t(1) << (12 + 39))
+
+/// SUB-SET CONSTANTS /////////////////////////////////////////
+
+#define EMPTY_SET 0
+#define FULL_SET ((uint64_t(1) << 52) - 1)
+
+#define ALL_CLUBS ((uint64_t(1) << 13) - 1)
+#define ALL_DIAMONDS (ALL_CLUBS << 13)
+#define ALL_HEARTS   (ALL_CLUBS << 26)
+#define ALL_SPADES   (ALL_CLUBS << 39)
+
+#define _ALL_4_OF(Card) (Card | (Card << 13) | (Card << 26) | (Card << 39))
+#define ALL_1  _ALL_4_OF(CLUBS_1 )
+#define ALL_2  _ALL_4_OF(CLUBS_2 )
+#define ALL_3  _ALL_4_OF(CLUBS_3 )
+#define ALL_4  _ALL_4_OF(CLUBS_4 )
+#define ALL_5  _ALL_4_OF(CLUBS_5 )
+#define ALL_6  _ALL_4_OF(CLUBS_6 )
+#define ALL_7  _ALL_4_OF(CLUBS_7 )
+#define ALL_8  _ALL_4_OF(CLUBS_8 )
+#define ALL_9  _ALL_4_OF(CLUBS_9 )
+#define ALL_10 _ALL_4_OF(CLUBS_10)
+#define ALL_J  _ALL_4_OF(CLUBS_J )
+#define ALL_Q  _ALL_4_OF(CLUBS_Q )
+#define ALL_K  _ALL_4_OF(CLUBS_K )
 
 #endif // STANDARD_52_CARD_DECK_ENUM_H
