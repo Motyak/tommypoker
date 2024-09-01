@@ -13,7 +13,7 @@ system_includes="$(perl -ne 'print if /#include\s*<\w+>/g' $INPUT_SOURCE_FILE $I
 )"
 
 ## evaluated main function ##
-comp_cmd="$(perl -ne 'print if s/\/\/\s?(gcc|g\+\+) (.*)/$1 -E $2/' $INPUT_SOURCE_FILE)"
+comp_cmd="$(perl -ne 'print if s/\/\/\s?g\+\+ (.*)/g++ -E $2/' $INPUT_SOURCE_FILE)"
 eval_main_fn="$($comp_cmd \
     | tail -n1000 \
     | perl -e 'my $s = do { local $/; <> }; $s =~ /(int main\(.*)/s && print $1' \
