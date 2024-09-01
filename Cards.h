@@ -4,11 +4,8 @@
 #include <Standard52CardDeckEnum.h>
 
 #include <cstdint>
-#include <initializer_list>
 #include <iostream>
 #include <bitset>
-#include <bit>
-#include <numeric>
 
 using Card = uint64_t; // any "Card" enum in {2^0, 2^1, ..., 2^51}
                        // LENGTH(Card) should always be 1

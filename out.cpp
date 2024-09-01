@@ -1,9 +1,6 @@
-#include <bit>
 #include <bitset>
 #include <cstdint>
-#include <initializer_list>
 #include <iostream>
-#include <numeric>
 
 // g++ --std=c++20 out.cpp -Wall -Wextra
 int main()
