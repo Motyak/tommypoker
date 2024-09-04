@@ -5,6 +5,7 @@
 
 #include <cstdint>
 #include <iostream>
+#include <bit>
 #include <bitset>
 
 using Card = uint64_t; // any "Card" enum in {2^0, 2^1, ..., 2^51}
