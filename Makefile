@@ -13,7 +13,7 @@ clean:
 out.cpp: $(SRC_FILE) $(HEADER_FILES)
 	bash -x build_out_cpp.sh $^ > $@
 
-eval_comp_cmd = perl -ne 'print if s/\/\/\s?(gcc|g\+\+ .*)/$$1/' $<
+eval_comp_cmd = perl -ne 'print if s/\/\/\s?(g\+\+ .*)/$$1/' $<
 a.out: out.cpp
 #	print the evaluated compilation command
 	@$(eval_comp_cmd)
