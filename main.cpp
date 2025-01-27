@@ -7,6 +7,8 @@ int main()
     {
         auto cards = ALL_1;
         auto res = MISSING(cards);
+                    // ~~~~~~~SPADES~~~~~~~HEARTS~~~~~DIAMONDS~~~~~~~~CLUBS
+                    // KQJX98765432AKQJX98765432AKQJX98765432AKQJX98765432A
         PRINT(res); // 1111111111110111111111111011111111111101111111111110
     }
 
@@ -22,6 +24,8 @@ int main()
         auto cards_A = Cards(HEARTS_1 | CLUBS_1 | DIAMONDS_1);
         auto cards_B = Cards(HEARTS_1 | CLUBS_1);
         auto cards_C = INTER(cards_A, cards_B);
+                        // ~~~~~~~SPADES~~~~~~~HEARTS~~~~~DIAMONDS~~~~~~~~CLUBS
+                        // KQJX98765432AKQJX98765432AKQJX98765432AKQJX98765432A
         PRINT(cards_C); // 0000000000000000000000000100000000000000000000000001
     }
 
@@ -30,6 +34,8 @@ int main()
         auto cards_A = Cards(HEARTS_1 | CLUBS_1 | DIAMONDS_1);
         auto cards_B = Cards(HEARTS_1 | CLUBS_1);
         auto cards_C = UNION(cards_A, cards_B);
+                        // ~~~~~~~SPADES~~~~~~~HEARTS~~~~~DIAMONDS~~~~~~~~CLUBS
+                        // KQJX98765432AKQJX98765432AKQJX98765432AKQJX98765432A
         PRINT(cards_C); // 0000000000000000000000000100000000000010000000000001
     }
 
@@ -46,6 +52,8 @@ int main()
         auto cards_A = Cards(HEARTS_1 | CLUBS_1);
         auto cards_B = Cards(HEARTS_1 | CLUBS_1 | DIAMONDS_1);
         auto cards_C = SYMDIFF(cards_A, cards_B);
+                        // ~~~~~~~SPADES~~~~~~~HEARTS~~~~~DIAMONDS~~~~~~~~CLUBS
+                        // KQJX98765432AKQJX98765432AKQJX98765432AKQJX98765432A
         PRINT(cards_C); // 0000000000000000000000000000000000000010000000000000
     }
 
